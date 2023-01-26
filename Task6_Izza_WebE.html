@@ -1,0 +1,106 @@
+<!ODCTYPE html>
+<head>
+<style>
+body{background-color:blue;
+color:yellow;
+font-size:20px;}
+form{text-align:center;}
+input{
+font-size:18px;
+}
+div{
+background-color:orange;
+text-align:right;}
+h1{
+background-color:orange;
+padding:15px;}
+</style>
+
+<script>
+function myfunct()
+{
+
+var fn=document.getElementById("fname").value;
+var ln=document.getElementById("lname").value;
+var e=document.getElementById("email").value;
+var p=document.getElementById("pass").value;
+
+var phone=document.getElementById("ph").value;
+var rep=document.getElementById("cpass").value;
+var bdate=document.getElementById("date").value;
+
+
+if (fn == "")
+{alert("**fill the first name field");
+return false;
+}
+else if (ln == "")
+{alert("**fill the last name field");
+return false;
+}
+else if (bdate == "")
+{alert("**fill the date of birth field");
+return false;
+}
+else
+if (e == "")
+{
+alert("**Enter a valid email address");
+e.focus();
+return false;
+}
+
+else
+if(p == "") 
+{alert("**Enter password");
+return false;
+}
+else
+if (rep == "")
+{alert("**Retype Password");
+
+return false;}
+
+else
+if(p != rep)
+{
+alert("**Password mismatched!!!");
+return false;
+}
+
+
+else {
+return true;
+}
+
+}
+
+</script>
+</head>
+<body>
+<h1> Sign Up </h1>
+<form id="form1" action="action_page.php" >
+<b>First Name  </b><input type="text" id="fname" value="" placeholder="Enter First Name"></input><br><br>
+
+<b>Last Name     </b><input type="text" id="lname"  placeholder="Enter Last Name"></input><br><br>
+<b>Date of Birth </b>
+
+<input type="date" style="font-size:20px; text-align:center;" type="number" id="date">
+<br><br>
+<b>Email </b> <input type="email" id="email" placeholder="Enter E-mail"></input><br><br>
+<b>Phone </b><input type="text" id="ph" placeholder="Enter Phone" pattern="[0-9]{1}[0-9]{10}" title="11 digits required"></input><br><br>
+<b>Password </b><input type="password" id="pass" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain atleast 1 number, one upper and lower case, and atleast 8 or more characters">
+</input><br><br>
+<b>Confirm Password </b><input type="password" id="cpass" placeholder="Confirm password"></input><br><br>
+<input type="checkbox" id="terms" value="checked" required><b>I agree to the Terms of use</b></input>
+<br><br>
+<div>
+<button style="width:15%; background-color: lightgreen; color:white;" onclick="return myfunct(this)" type="submit" id="submit"><h2>Submit</h2></button>
+<button style="width:15%; background-color: pink; color:white;" type="reset" id="reset"><h2>Cancel</h2></button>
+</div>
+
+</form>
+
+</body>
+
+</html>
